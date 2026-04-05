@@ -359,6 +359,28 @@
         </div>
 
         <div class="field" style="margin-bottom:18px">
+          <label>Кой пакет ви интересува?</label>
+          <div class="radio-group" id="paketGroup">
+            <label class="radio-item">
+              <input type="radio" name="paket" value="Старт — от 150 €" id="paket_start">
+              <div><div class="radio-label">🚀 Старт — от 150 €</div><div class="radio-desc">Landing page + форма за контакт. За 3–5 дни.</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="paket" value="Про — от 280 €" id="paket_pro">
+              <div><div class="radio-label">⭐ Про — от 280 € <span style="background:#2563eb;color:#fff;font-size:0.65rem;padding:2px 8px;border-radius:20px;margin-left:6px;font-weight:700;">Популярен</span></div><div class="radio-desc">Landing page + онлайн записване + базово лого.</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="paket" value="Про+ — от 420 €" id="paket_proplus">
+              <div><div class="radio-label">💎 Про+ — от 420 €</div><div class="radio-desc">Всичко в Про + лого/визитка + 3 месеца поддръжка.</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="paket" value="Не съм сигурен" id="paket_none">
+              <div><div class="radio-label">🤷 Не съм сигурен</div><div class="radio-desc">Ще обсъдим заедно кое е най-подходящо.</div></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:18px">
           <label>Каква е основната цел на страницата? <span class="req">*</span></label>
           <div class="radio-group">
             <label class="radio-item">
@@ -543,10 +565,10 @@
 </div>
 
 <footer>
-  <p><a href="https://chilikovweb.com" target="_blank" style="color:var(--blue-mid); font-weight:700; text-decoration:none;">ChilikovWeb</a> · Въпроси? <a href="mailto:hello@chilikovweb.com" style="color:var(--blue-mid);">hello@chilikovweb.com</a></p>
+  <p><a href="https://chilikovweb.com" target="_blank" style="color:var(--blue-mid); font-weight:700; text-decoration:none;">ChilikovWeb</a> · Въпроси? <a href="/cdn-cgi/l/email-protection#620a070e0e0d22010a0b0e0b090d141507004c010d0f" style="color:var(--blue-mid);"><span class="__cf_email__" data-cfemail="19717c757576597a7170757072766f6e7c7b377a7674">[email&#160;protected]</span></a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Progress bar based on filled fields
   const form = document.getElementById('clientForm');
   const progressFill = document.getElementById('progressFill');
@@ -572,6 +594,30 @@
   form.addEventListener('input', updateProgress);
   form.addEventListener('change', updateProgress);
 
+  // ── Read ?paket= URL param and preselect ──
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var paket = params.get('paket');
+    var map = {
+      'start':   'paket_start',
+      'pro':     'paket_pro',
+      'proplus': 'paket_proplus'
+    };
+    if (paket && map[paket]) {
+      var el = document.getElementById(map[paket]);
+      if (el) {
+        el.checked = true;
+        // Highlight the selected radio item
+        el.closest('.radio-item').style.borderColor = '#2563eb';
+        el.closest('.radio-item').style.background = '#e8f0fc';
+        // Scroll to package section smoothly
+        setTimeout(function() {
+          el.closest('.form-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 400);
+      }
+    }
+  })();
+
   // Formspree AJAX submit
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -588,8 +634,4 @@
       });
 
       if (res.ok) {
-        form.querySelectorAll('.form-section, .submit-area').forEach(s => s.style.display = 'none');
-        document.getElementById('successMsg').style.display = 'block';
-        progressFill.style.width = '100%';
-      } else {
-        btn.textContent = '❌ Грешка
+        form.querySelector
