@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Заявка | ChilikovWeb</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue:      #1a3a6b;
+    --blue-mid:  #2556a8;
+    --blue-light:#e8f0fc;
+    --accent:    #2563eb;
+    --green:     #16a34a;
+    --green-bg:  #f0fdf4;
+    --red:       #d72638;
+    --white:     #ffffff;
+    --off-white: #f5f7fb;
+    --gray:      #6b7a90;
+    --gray-light:#e2e8f0;
+    --text:      #1e2d42;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--blue);
+    padding: 0 24px;
+  }
+  header .inner {
+    max-width: 740px; margin: 0 auto;
+    padding: 24px 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 1.3rem; color: #fff; text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-circle-cw {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(126,184,255,0.6);
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Nunito', sans-serif; font-size: 0.85rem; font-weight: 900;
+    color: #7eb8ff; letter-spacing: -0.5px; flex-shrink: 0;
+  }
+  .logo span { color: #7eb8ff; }
+  .header-badge {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.8); border-radius: 20px;
+    font-size: 0.8rem; font-weight: 700; padding: 5px 14px;
+  }
+
+  /* ── HERO STRIP ── */
+  .hero-strip {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+    padding: 48px 24px 56px;
+    text-align: center; color: #fff;
+  }
+  .hero-strip h1 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 12px; line-height: 1.2;
+  }
+  .hero-strip h1 span { color: #7eb8ff; }
+  .hero-strip p {
+    font-size: 1rem; color: rgba(255,255,255,0.75);
+    max-width: 520px; margin: 0 auto 24px; line-height: 1.6;
+  }
+  .steps-row {
+    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+    max-width: 600px; margin: 0 auto;
+  }
+  .step-pill {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px; padding: 6px 16px;
+    font-size: 0.82rem; font-weight: 700; color: rgba(255,255,255,0.85);
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── MAIN FORM ── */
+  .form-wrap {
+    max-width: 740px; margin: -28px auto 48px;
+    padding: 0 16px;
+  }
+
+  .form-card {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(26,58,107,0.12);
+    overflow: hidden;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 4px; background: var(--gray-light);
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%; background: var(--accent);
+    transition: width 0.4s ease;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Section blocks */
+  .form-section {
+    padding: 36px 40px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .form-section:last-of-type { border-bottom: none; }
+  @media(max-width:600px){ .form-section { padding: 28px 20px; } }
+
+  .section-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+    background: var(--blue-light); color: var(--blue);
+    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .section-header h2 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 1.1rem; color: var(--blue);
+  }
+  .section-header p { font-size: 0.85rem; color: var(--gray); margin-top: 2px; }
+
+  /* Fields */
+  .field-row {
+    display: grid; gap: 16px; margin-bottom: 18px;
+  }
+  .field-row.two { grid-template-columns: 1fr 1fr; }
+  @media(max-width:560px){ .field-row.two { grid-template-columns: 1fr; } }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-family: 'Nunito', sans-serif; font-weight: 800;
+    font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--gray);
+  }
+  .field label .req { color: var(--red); margin-left: 2px; }
+  .field input,
+  .field textarea,
+  .field select {
+    width: 100%; background: var(--off-white);
+    border: 1.5px solid var(--gray-light); border-radius: 8px;
+    color: var(--text); font-family: 'Nunito Sans', sans-serif; font-size: 0.97rem;
+    padding: 11px 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    background: var(--white);
+  }
+  .field textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
+  .field .hint { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+
+  /* Checkbox group */
+  .check-group {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px; margin-top: 6px;
+  }
+  .check-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--off-white); border: 1.5px solid var(--gray-light);
+    border-radius: 8px; padding: 10px 14px; cursor: pointer;
+    transition: all 0.15s; user-select: none;
+  }
+  .check-item:hover { border-color: var(--accent); background: var(--blue-light); }
+  .check-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .check-item span { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+  /* Radio group */
+  .radio-group { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .radio-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--off-white); border: 1.5px solid var(--gray-light);
+    border-radius: 8px; padding: 12px 16px; cursor: pointer; transition: all 0.15s;
+  }
+  .radio-item:hover { border-color: var(--accent); background: var(--blue-light); }
+  .radio-item input[type="radio"] { margin-top: 2px; width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+  .radio-item .radio-label { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+  .radio-item .radio-desc { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+
+  /* Info box */
+  .info-box {
+    background: var(--blue-light); border: 1px solid rgba(37,99,235,0.2);
+    border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;
+    font-size: 0.88rem; color: var(--blue-mid); line-height: 1.6;
+  }
+  .info-box strong { color: var(--blue); }
+
+  /* Submit area */
+  .submit-area {
+    padding: 32px 40px;
+    background: var(--off-white);
+    border-top: 1px solid var(--gray-light);
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    flex-wrap: wrap;
+  }
+  @media(max-width:600px){ .submit-area { padding: 24px 20px; } }
+  .submit-note { font-size: 0.82rem; color: var(--gray); line-height: 1.5; max-width: 300px; }
+  .submit-note strong { color: var(--text); }
+  .btn-submit {
+    background: var(--blue); color: #fff;
+    font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.05rem;
+    border: none; border-radius: 10px; cursor: pointer;
+    padding: 15px 36px; transition: background 0.2s;
+    box-shadow: 0 4px 16px rgba(26,58,107,0.25);
+    white-space: nowrap;
+  }
+  .btn-submit:hover { background: var(--blue-mid); }
+
+  /* Success message */
+  .success-msg {
+    display: none;
+    background: var(--green-bg); border: 1.5px solid #86efac;
+    border-radius: 12px; padding: 32px 36px; text-align: center;
+    margin: 0 40px 40px;
+  }
+  .success-msg .success-icon { font-size: 3rem; margin-bottom: 12px; }
+  .success-msg h3 {
+    font-family: 'Nunito', sans-serif; font-weight: 900;
+    font-size: 1.3rem; color: var(--green); margin-bottom: 8px;
+  }
+  .success-msg p { font-size: 0.95rem; color: #166534; }
+
+  /* Footer */
+  footer {
+    text-align: center; padding: 28px 16px;
+    font-size: 0.82rem; color: var(--gray);
+  }
+  footer strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="inner">
+    <a class="logo" href="https://chilikovweb.com" target="_blank">
+      <div class="logo-circle-cw">CW</div>
+      chilikov<span>web</span>
+    </a>
+    <div class="header-badge">Онлайн присъствие за всеки бизнес</div>
+  </div>
+</header>
+
+<div class="hero-strip">
+  <h1>Разкажете ни за <span>вашия бизнес</span></h1>
+  <p>Попълнете формата и ще се свържем с вас до 24 часа с безплатен примерен дизайн. Без ангажимент.</p>
+  <div class="steps-row">
+    <div class="step-pill">📋 Попълнете формата</div>
+    <div class="step-pill">→</div>
+    <div class="step-pill">📞 Обаждаме се до 24ч</div>
+    <div class="step-pill">→</div>
+    <div class="step-pill">🚀 Готово до 5 дни</div>
+  </div>
+</div>
+
+<div class="form-wrap">
+  <div class="form-card">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+
+    <form id="clientForm" action="https://formspree.io/f/mwvwwyoo" method="POST">
+
+      <!-- SECTION 1: За вас -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">1</div>
+          <div>
+            <h2>За вас</h2>
+            <p>Основна информация за вашия бизнес</p>
+          </div>
+        </div>
+
+        <div class="field-row two">
+          <div class="field">
+            <label>Вашето име <span class="req">*</span></label>
+            <input type="text" name="ime" placeholder="Иван Петров" required>
+          </div>
+          <div class="field">
+            <label>Телефон <span class="req">*</span></label>
+            <input type="tel" name="telefon" placeholder="08XX XXX XXX" required>
+          </div>
+        </div>
+
+        <div class="field-row two">
+          <div class="field">
+            <label>Имейл <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="ivan@example.com" required>
+          </div>
+          <div class="field">
+            <label>Град <span class="req">*</span></label>
+            <input type="text" name="grad" placeholder="напр. София" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label>Име на бизнеса / фирмата <span class="req">*</span></label>
+            <input type="text" name="biznes_ime" placeholder="напр. ВиК Про, Салон Елегант..." required>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Вид бизнес -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">2</div>
+          <div>
+            <h2>Вид на бизнеса</h2>
+            <p>Каква е вашата дейност?</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Категория <span class="req">*</span></label>
+          <div class="check-group">
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="ВиК / Водопроводчик"><span>🔧 ВиК / Водопроводчик</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Електро услуги"><span>⚡ Електро услуги</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Козметичен салон"><span>💅 Козметичен салон</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Масажист"><span>💆 Масажист</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Кетъринг / Торти"><span>🎂 Кетъринг / Торти</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Ресторант / Кафе"><span>🍽️ Ресторант / Кафе</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Строителни услуги"><span>🏗️ Строителни услуги</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Друго"><span>➕ Друго</span></label>
+          </div>
+        </div>
+
+        <div class="field-row" style="margin-top:18px">
+          <div class="field">
+            <label>Опишете накратко какво правите <span class="req">*</span></label>
+            <textarea name="opisanie_biznes" placeholder="напр. Правя ВиК ремонти и отпушвания в София. Работя самостоятелно, 15 години опит..." required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: За сайта -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">3</div>
+          <div>
+            <h2>За вашия сайт</h2>
+            <p>Какво искате да постигнете</p>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:18px">
+          <label>Каква е основната цел на страницата? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="cel" value="Клиентите да ми се обаждат" required>
+              <div><div class="radio-label">📞 Клиентите да ми се обаждат</div><div class="radio-desc">Телефонен номер на видно място, фокус върху обаждане</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="cel" value="Клиентите да записват час онлайн">
+              <div><div class="radio-label">📅 Клиентите да записват час онлайн</div><div class="radio-desc">Форма за записване на час / услуга</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="cel" value="Изпращане на запитвания по имейл / форма">
+              <div><div class="radio-label">✉️ Изпращане на запитвания</div><div class="radio-desc">Форма за контакт и запитване</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="cel" value="Не съм сигурен">
+              <div><div class="radio-label">🤷 Не съм сигурен</div><div class="radio-desc">Ще ми помогнете вие да решим</div></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Кои са вашите основни услуги? <span class="req">*</span></label>
+          <textarea name="uslugi" placeholder="Изброй услугите, които искате да се показват на сайта. напр: отпушване на канали, ремонт на течове, монтаж на бойлери..." required></textarea>
+          <span class="hint">Колкото повече детайли, толкова по-добър ще бъде резултатът.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Стил и дизайн -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">4</div>
+          <div>
+            <h2>Стил и дизайн</h2>
+            <p>Как искате да изглежда страницата</p>
+          </div>
+        </div>
+
+        <div class="field" style="margin-bottom:18px">
+          <label>Предпочитан стил <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-item">
+              <input type="radio" name="stil" value="Тъмен и сериозен" required>
+              <div><div class="radio-label">🌑 Тъмен и сериозен</div><div class="radio-desc">Тъмен фон, жълти/оранжеви акценти — внушава доверие и професионализъм</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="stil" value="Светъл и приятелски">
+              <div><div class="radio-label">☀️ Светъл и приятелски</div><div class="radio-desc">Бял фон, сини/червени акценти — топло и достъпно усещане</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="stil" value="Луксозен и елегантен">
+              <div><div class="radio-label">✨ Луксозен и елегантен</div><div class="radio-desc">Злато/черно/бяло — за козметика, салони, премиум услуги</div></div>
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="stil" value="Нямам предпочитание">
+              <div><div class="radio-label">🎨 Нямам предпочитание</div><div class="radio-desc">Вие да изберете най-подходящия за моя бизнес</div></div>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-row two">
+          <div class="field">
+            <label>Имате ли лого?</label>
+            <select name="logo">
+              <option value="">— Изберете —</option>
+              <option>Да, ще го изпратя</option>
+              <option>Нямам, но искам да ми направите</option>
+              <option>Нямам, не ми трябва</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Имате ли снимки на работата си?</label>
+            <select name="snimki">
+              <option value="">— Изберете —</option>
+              <option>Да, ще ги изпратя</option>
+              <option>Имам малко</option>
+              <option>Нямам</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Сайт на конкурент, който харесвате (по желание)</label>
+          <input type="url" name="primer_sait" placeholder="https://...">
+          <span class="hint">Не е задължително — помага ни да разберем вашия вкус.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 5: Допълнителни услуги -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">5</div>
+          <div>
+            <h2>Допълнителни услуги</h2>
+            <p>Изберете всичко което ви интересува (по желание)</p>
+          </div>
+        </div>
+        <div class="field">
+          <div class="check-group">
+            <label class="check-item"><input type="checkbox" name="extra" value="Лого и визуална идентичност"><span>🎨 Лого и визуална идентичност</span></label>
+            <label class="check-item"><input type="checkbox" name="extra" value="Визитни картички за печат"><span>🪪 Визитни картички за печат</span></label>
+            <label class="check-item"><input type="checkbox" name="extra" value="Онлайн записване (Calendly/Fresha)"><span>📅 Онлайн записване</span></label>
+            <label class="check-item"><input type="checkbox" name="extra" value="Facebook страница и настройка"><span>👍 Facebook страница</span></label>
+            <label class="check-item"><input type="checkbox" name="extra" value="Instagram профил и настройка"><span>📸 Instagram профил</span></label>
+            <label class="check-item"><input type="checkbox" name="extra" value="Месечна поддръжка на сайта"><span>🔄 Месечна поддръжка</span></label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 6: Допълнително -->
+      <div class="form-section">
+        <div class="section-header">
+          <div class="section-num">6</div>
+          <div>
+            <h2>Допълнителна информация</h2>
+            <p>Всичко друго, което смятате за важно</p>
+          </div>
+        </div>
+
+        <div class="info-box">
+          💡 <strong>Домейн и хостинг:</strong> Страницата изисква домейн (напр. vikpro-sofia.bg) — около <strong>8–13 €/година</strong>, купен от вас. Ако нямате, ще ви помогнем при поръчката.
+        </div>
+
+        <div class="field-row two">
+          <div class="field">
+            <label>Имате ли домейн?</label>
+            <select name="domain">
+              <option value="">— Изберете —</option>
+              <option>Да, имам</option>
+              <option>Не, нямам</option>
+              <option>Не знам какво е домейн</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Кога искате сайтът да е готов?</label>
+            <select name="deadline">
+              <option value="">— Изберете —</option>
+              <option>Колкото се може по-бързо</option>
+              <option>До 1 седмица</option>
+              <option>До 2 седмици</option>
+              <option>Нямам конкретен срок</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row two">
+          <div class="field">
+            <label>Как научихте за нас?</label>
+            <select name="kak_nauchihte">
+              <option value="">— Изберете —</option>
+              <option>Facebook</option>
+              <option>Instagram</option>
+              <option>Google търсене</option>
+              <option>Препоръка от познат</option>
+              <option>Друго</option>
+            </select>
+          </div>
+
+        <div class="field">
+          <label>Допълнителни въпроси или бележки</label>
+          <textarea name="dopalnitelno" placeholder="Всичко друго, което искате да знаем..."></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="submit-area">
+        <div class="submit-note">
+          <strong>Какво се случва след това?</strong><br>
+          Ще се свържем с вас до 24 часа с оферта и примерен дизайн. Без ангажимент.
+        </div>
+        <button type="submit" class="btn-submit">📤 Изпрати заявката →</button>
+      </div>
+
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">🎉</div>
+        <h3>Заявката е изпратена успешно!</h3>
+        <p>Ще се свържем с вас до 24 часа. Очаквайте обаждане или имейл от нас.</p>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p><a href="https://chilikovweb.com" target="_blank" style="color:var(--blue-mid); font-weight:700; text-decoration:none;">ChilikovWeb</a> · Въпроси? <a href="mailto:hello@chilikovweb.com" style="color:var(--blue-mid);">hello@chilikovweb.com</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Progress bar based on filled fields
+  const form = document.getElementById('clientForm');
+  const progressFill = document.getElementById('progressFill');
+
+  function updateProgress() {
+    const required = form.querySelectorAll('[required]');
+    let filled = 0;
+    required.forEach(el => {
+      if (el.type === 'radio') {
+        const group = form.querySelectorAll(`[name="${el.name}"]:checked`);
+        if (group.length > 0) filled++;
+      } else if (el.value.trim() !== '') {
+        filled++;
+      }
+    });
+    // Count unique radio groups
+    const radioGroups = new Set([...form.querySelectorAll('[type="radio"][required]')].map(r => r.name));
+    const totalRequired = form.querySelectorAll('[required]:not([type="radio"])').length + radioGroups.size;
+    const pct = Math.min(100, Math.round((filled / totalRequired) * 100));
+    progressFill.style.width = pct + '%';
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+
+  // Formspree AJAX submit
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.btn-submit');
+    btn.textContent = '⏳ Изпращане...';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.querySelectorAll('.form-section, .submit-area').forEach(s => s.style.display = 'none');
+        document.getElementById('successMsg').style.display = 'block';
+        progressFill.style.width = '100%';
+      } else {
+        btn.textContent = '❌ Грешка
