@@ -329,7 +329,7 @@
         <div class="field">
           <label>Категория <span class="req">*</span></label>
           <div class="check-group">
-            <label class="check-item"><input type="checkbox" name="kategoriya" value="ВиК / Водопроводчик"><span>🔧 ВиК / Водопроводчик</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="Майстор / Водопроводчик"><span>🔧 Майстор / Водопроводчик</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Електро услуги"><span>⚡ Електро услуги</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Козметичен салон"><span>💅 Козметичен салон</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Масажист"><span>💆 Масажист</span></label>
@@ -634,4 +634,18 @@
       });
 
       if (res.ok) {
-        form.querySelector
+        form.querySelectorAll('.form-section, .submit-area').forEach(s => s.style.display = 'none');
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        btn.textContent = '❌ Грешка — опитайте отново';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = '❌ Грешка — опитайте отново';
+      btn.disabled = false;
+    }
+  });
+
+</script>
+</body>
+</html>
