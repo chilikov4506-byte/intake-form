@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Заявка | ChilikovWeb</title>
+<title>Заявка за безплатен дизайн | ChilikovWeb</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230b1220%22/%3E%3Cg fill=%22none%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M26 32 L11 50 L26 68%22 stroke=%22%233b82f6%22/%3E%3Cpath d=%22M55 39 A14 14 0 1 0 55 61%22 stroke=%22%23f8fafc%22/%3E%3Cpath d=%22M69 32 L63 68%22 stroke=%22%233b82f6%22/%3E%3Cpath d=%22M76 32 L91 50 L76 68%22 stroke=%22%233b82f6%22/%3E%3C/g%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -132,9 +134,9 @@
   }
   .section-header h2 {
     font-family: 'Nunito', sans-serif; font-weight: 900;
-    font-size: 1.1rem; color: var(--blue);
+    font-size: 1.2rem; color: var(--blue);
   }
-  .section-header p { font-size: 0.85rem; color: var(--gray); margin-top: 2px; }
+  .section-header p { font-size: 0.9rem; color: var(--gray); margin-top: 2px; }
 
   /* Fields */
   .field-row {
@@ -155,7 +157,7 @@
   .field select {
     width: 100%; background: var(--off-white);
     border: 1.5px solid var(--gray-light); border-radius: 8px;
-    color: var(--text); font-family: 'Nunito Sans', sans-serif; font-size: 0.97rem;
+    color: var(--text); font-family: 'Nunito Sans', sans-serif; font-size: 1rem;
     padding: 11px 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
   }
   .field input:focus,
@@ -166,7 +168,7 @@
     background: var(--white);
   }
   .field textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
-  .field .hint { font-size: 0.78rem; color: var(--gray); margin-top: 2px; }
+  .field .hint { font-size: 0.82rem; color: var(--gray); margin-top: 2px; }
 
   /* Checkbox group */
   .check-group {
@@ -193,7 +195,7 @@
   .radio-item:hover { border-color: var(--accent); background: var(--blue-light); }
   .radio-item input[type="radio"] { margin-top: 2px; width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
   .radio-item .radio-label { font-size: 0.92rem; font-weight: 700; color: var(--text); }
-  .radio-item .radio-desc { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+  .radio-item .radio-desc { font-size: 0.85rem; color: var(--gray); margin-top: 2px; }
 
   /* Info box */
   .info-box {
@@ -212,7 +214,7 @@
     flex-wrap: wrap;
   }
   @media(max-width:600px){ .submit-area { padding: 24px 20px; } }
-  .submit-note { font-size: 0.82rem; color: var(--gray); line-height: 1.5; max-width: 300px; }
+  .submit-note { font-size: 0.88rem; color: var(--gray); line-height: 1.5; max-width: 300px; }
   .submit-note strong { color: var(--text); }
   .btn-submit {
     background: var(--blue); color: #fff;
@@ -244,6 +246,37 @@
     font-size: 0.82rem; color: var(--gray);
   }
   footer strong { color: var(--text); }
+
+  /* ── Style swatches ── */
+  .style-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
+  @media(max-width:560px){ .style-grid { grid-template-columns: 1fr; } }
+  .style-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px;
+    background: var(--off-white); border: 1.5px solid var(--gray-light); border-radius: 10px;
+    padding: 14px 16px; cursor: pointer; transition: all 0.15s;
+  }
+  .style-card:hover { border-color: var(--accent); }
+  .style-card input { position: absolute; opacity: 0; pointer-events: none; }
+  .style-card:has(input:checked) { border-color: var(--accent); background: var(--blue-light); box-shadow: 0 0 0 3px rgba(37,99,235,0.15); }
+  .style-card:has(input:checked)::after {
+    content: '✓'; position: absolute; top: 10px; right: 12px; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .swatches { display: flex; height: 34px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08); }
+  .swatches i { flex: 1; }
+  .swatches i:first-child { flex: 2; }
+  .style-name { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.95rem; color: var(--text); }
+  .style-for { font-size: 0.82rem; color: var(--gray); margin-top: -6px; line-height: 1.4; }
+  .style-card.any .swatches { background: repeating-linear-gradient(45deg, #eef2f7 0 8px, #fff 8px 16px); }
+  .brand-colors { margin-top: 14px; display: none; }
+  .brand-colors.show { display: flex; }
+  .field label.radio-item, .field label.check-item, .field label.style-card {
+    text-transform: none; letter-spacing: 0; font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400; font-size: 1rem; color: var(--text);
+  }
+  @media(max-width:560px){ .step-pill.arrow { display: none; } }
+  .check-error { display: none; color: var(--red); font-size: 0.85rem; font-weight: 700; margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -251,8 +284,7 @@
 <header>
   <div class="inner">
     <a class="logo" href="https://chilikovweb.com" target="_blank">
-      <div class="logo-circle-cw">CW</div>
-      chilikov<span>web</span>
+      <svg viewBox="0 26 421 48" height="30" role="img" aria-label="ChilikovWeb" style="display:block;width:auto"><g><g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 30 L8 50 L24 70" stroke="#7eb8ff"/><path d="M55 38 A15 15 0 1 0 55 62" stroke="#f8fafc"/><path d="M70 30 L63 70" stroke="#7eb8ff"/><path d="M78 30 L94 50 L78 70" stroke="#7eb8ff"/></g></g><path d="M144.794921875 63.775390625Q143.205078125 64.69921875 141.5185546875 65.1611328125Q139.83203125 65.623046875 138.0703125 65.623046875Q132.484375 65.623046875 129.3369140625 62.271484375Q126.189453125 58.919921875 126.189453125 52.990234375Q126.189453125 47.060546875 129.3369140625 43.708984375Q132.484375 40.357421875 138.0703125 40.357421875Q139.810546875 40.357421875 141.46484375 40.80859375Q143.119140625 41.259765625 144.794921875 42.205078125V46.3515625Q143.2265625 44.955078125 141.6474609375 44.33203125Q140.068359375 43.708984375 138.0703125 43.708984375Q134.353515625 43.708984375 132.35546875 46.115234375Q130.357421875 48.521484375 130.357421875 52.990234375Q130.357421875 57.4375 132.3662109375 59.8544921875Q134.375 62.271484375 138.0703125 62.271484375Q140.1328125 62.271484375 141.765625 61.6376953125Q143.3984375 61.00390625 144.794921875 59.671875ZM171.0703125 50.08984375V65.0H167.095703125V50.08984375Q167.095703125 46.845703125 165.95703125 45.3203125Q164.818359375 43.794921875 162.390625 43.794921875Q159.619140625 43.794921875 158.1259765625 45.7607421875Q156.6328125 47.7265625 156.6328125 51.400390625V65.0H152.6796875V31.5703125H156.6328125V44.546875Q157.685546875 42.484375 159.490234375 41.4208984375Q161.294921875 40.357421875 163.765625 40.357421875Q167.439453125 40.357421875 169.2548828125 42.7744140625Q171.0703125 45.19140625 171.0703125 50.08984375ZM180.48046875 40.9375H190.599609375V61.927734375H198.44140625V65.0H178.8046875V61.927734375H186.646484375V44.009765625H180.48046875ZM186.646484375 31.5703125H190.599609375V36.576171875H186.646484375ZM215.19921875 56.27734375Q215.19921875 58.94140625 216.1767578125 60.294921875Q217.154296875 61.6484375 219.06640625 61.6484375H223.685546875V65.0H218.6796875Q215.134765625 65.0 213.1904296875 62.72265625Q211.24609375 60.4453125 211.24609375 56.27734375V34.427734375H204.908203125V31.333984375H215.19921875ZM233.4609375 40.9375H243.580078125V61.927734375H251.421875V65.0H231.78515625V61.927734375H239.626953125V44.009765625H233.4609375ZM239.626953125 31.5703125H243.580078125V36.576171875H239.626953125ZM259.521484375 31.5703125H263.603515625V50.927734375L273.98046875 40.9375H278.79296875L269.318359375 50.00390625L280.275390625 65.0H275.44140625L266.546875 52.58203125L263.603515625 55.353515625V65.0H259.521484375ZM294.17578125 43.708984375Q291.16796875 43.708984375 289.62109375 46.05078125Q288.07421875 48.392578125 288.07421875 52.990234375Q288.07421875 57.56640625 289.62109375 59.9189453125Q291.16796875 62.271484375 294.17578125 62.271484375Q297.205078125 62.271484375 298.751953125 59.9189453125Q300.298828125 57.56640625 300.298828125 52.990234375Q300.298828125 48.392578125 298.751953125 46.05078125Q297.205078125 43.708984375 294.17578125 43.708984375ZM294.17578125 40.357421875Q299.181640625 40.357421875 301.8349609375 43.6015625Q304.48828125 46.845703125 304.48828125 52.990234375Q304.48828125 59.15625 301.845703125 62.3896484375Q299.203125 65.623046875 294.17578125 65.623046875Q289.169921875 65.623046875 286.52734375 62.3896484375Q283.884765625 59.15625 283.884765625 52.990234375Q283.884765625 46.845703125 286.52734375 43.6015625Q289.169921875 40.357421875 294.17578125 40.357421875ZM309.580078125 40.9375H313.68359375L320.666015625 61.1328125L327.669921875 40.9375H331.7734375L323.22265625 65.0H318.130859375Z" fill="#f8fafc"/><path d="M333.921875 40.9375H337.83203125L342.021484375 60.380859375L345.458984375 47.962890625H348.83203125L352.3125 60.380859375L356.501953125 40.9375H360.412109375L354.783203125 65.0H351.001953125L347.15625 51.80859375L343.33203125 65.0H339.55078125ZM384.302734375 51.98046875V53.9140625H367.1796875V54.04296875Q367.1796875 57.974609375 369.2314453125 60.123046875Q371.283203125 62.271484375 375.021484375 62.271484375Q376.912109375 62.271484375 378.974609375 61.669921875Q381.037109375 61.068359375 383.37890625 59.84375V63.775390625Q381.123046875 64.69921875 379.0283203125 65.1611328125Q376.93359375 65.623046875 374.978515625 65.623046875Q369.37109375 65.623046875 366.212890625 62.2607421875Q363.0546875 58.8984375 363.0546875 52.990234375Q363.0546875 47.232421875 366.1484375 43.794921875Q369.2421875 40.357421875 374.3984375 40.357421875Q378.99609375 40.357421875 381.6494140625 43.47265625Q384.302734375 46.587890625 384.302734375 51.98046875ZM380.349609375 50.8203125Q380.263671875 47.33984375 378.7060546875 45.5244140625Q377.1484375 43.708984375 374.2265625 43.708984375Q371.369140625 43.708984375 369.521484375 45.599609375Q367.673828125 47.490234375 367.330078125 50.841796875ZM406.625 52.990234375Q406.625 48.392578125 405.1640625 46.05078125Q403.703125 43.708984375 400.845703125 43.708984375Q397.966796875 43.708984375 396.484375 46.0615234375Q395.001953125 48.4140625 395.001953125 52.990234375Q395.001953125 57.544921875 396.484375 59.908203125Q397.966796875 62.271484375 400.845703125 62.271484375Q403.703125 62.271484375 405.1640625 59.9296875Q406.625 57.587890625 406.625 52.990234375ZM395.001953125 44.009765625Q395.947265625 42.248046875 397.6123046875 41.302734375Q399.27734375 40.357421875 401.46875 40.357421875Q405.80859375 40.357421875 408.30078125 43.6982421875Q410.79296875 47.0390625 410.79296875 52.904296875Q410.79296875 58.85546875 408.2900390625 62.2392578125Q405.787109375 65.623046875 401.42578125 65.623046875Q399.27734375 65.623046875 397.6337890625 64.6884765625Q395.990234375 63.75390625 395.001953125 61.970703125V65.0H391.048828125V31.5703125H395.001953125Z" fill="#7eb8ff"/></svg>
     </a>
     <div class="header-badge">Онлайн присъствие за всеки бизнес</div>
   </div>
@@ -260,13 +292,15 @@
 
 <div class="hero-strip">
   <h1>Разкажете ни за <span>вашия бизнес</span></h1>
-  <p>Попълнете формата и ще се свържем с вас до 24 часа с безплатен примерен дизайн. Без ангажимент.</p>
+  <p>Попълнете формата — отнема около 3 минути. Ще се свържем с вас до 24 часа, а примерния дизайн получавате безплатно за 1–2 дни. Без ангажимент.</p>
   <div class="steps-row">
-    <div class="step-pill">📋 Попълнете формата</div>
-    <div class="step-pill">→</div>
-    <div class="step-pill">📞 Обаждаме се до 24ч</div>
-    <div class="step-pill">→</div>
-    <div class="step-pill">🚀 Готово до 5 дни</div>
+    <div class="step-pill">📋 Попълвате формата</div>
+    <div class="step-pill arrow">→</div>
+    <div class="step-pill">📞 Отговаряме до 24 ч</div>
+    <div class="step-pill arrow">→</div>
+    <div class="step-pill">🎨 Безплатен дизайн</div>
+    <div class="step-pill arrow">→</div>
+    <div class="step-pill">🚀 Готово до 5 работни дни</div>
   </div>
 </div>
 
@@ -274,7 +308,11 @@
   <div class="form-card">
     <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
 
-    <form id="clientForm" action="https://formspree.io/f/mwvwwyoo" method="POST">
+    <form id="clientForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="49b523ae-21e6-4d06-b2e4-a319756af0f3">
+      <input type="hidden" name="redirect" value="https://form.chilikovweb.com/thanks.html">
+      <input type="hidden" name="subject" value="Ново запитване от ChilikovWeb">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
 
       <!-- SECTION 1: За вас -->
       <div class="form-section">
@@ -329,7 +367,7 @@
         <div class="field">
           <label>Категория <span class="req">*</span></label>
           <div class="check-group">
-            <label class="check-item"><input type="checkbox" name="kategoriya" value="Майстор / Водопроводчик"><span>🔧 Майстор / Водопроводчик</span></label>
+            <label class="check-item"><input type="checkbox" name="kategoriya" value="ВиК / Водопроводчик"><span>🔧 ВиК / Водопроводчик</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Електро услуги"><span>⚡ Електро услуги</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Козметичен салон"><span>💅 Козметичен салон</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Масажист"><span>💆 Масажист</span></label>
@@ -338,6 +376,7 @@
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Строителни услуги"><span>🏗️ Строителни услуги</span></label>
             <label class="check-item"><input type="checkbox" name="kategoriya" value="Друго"><span>➕ Друго</span></label>
           </div>
+          <div class="check-error" id="katError">Моля, изберете поне една категория.</div>
         </div>
 
         <div class="field-row" style="margin-top:18px">
@@ -363,25 +402,25 @@
           <div class="radio-group" id="paketGroup">
             <label class="radio-item">
               <input type="radio" name="paket" value="Старт — от 150 €" id="paket_start">
-              <div><div class="radio-label">🚀 Старт — от 150 €</div><div class="radio-desc">Landing page + форма за контакт. За 3–5 дни.</div></div>
+              <div><div class="radio-label">🚀 Старт — от 150 €</div><div class="radio-desc">Професионален уебсайт (1 страница) + форма за контакт.</div></div>
             </label>
             <label class="radio-item">
               <input type="radio" name="paket" value="Про — от 280 €" id="paket_pro">
-              <div><div class="radio-label">⭐ Про — от 280 € <span style="background:#2563eb;color:#fff;font-size:0.65rem;padding:2px 8px;border-radius:20px;margin-left:6px;font-weight:700;">Популярен</span></div><div class="radio-desc">Landing page + онлайн записване + базово лого.</div></div>
+              <div><div class="radio-label">⭐ Про — от 280 € <span style="background:#2563eb;color:#fff;font-size:0.65rem;padding:2px 8px;border-radius:20px;margin-left:6px;font-weight:700;">Популярен</span></div><div class="radio-desc">Професионален уебсайт + онлайн записване + базово лого.</div></div>
             </label>
             <label class="radio-item">
               <input type="radio" name="paket" value="Про+ — от 420 €" id="paket_proplus">
-              <div><div class="radio-label">💎 Про+ — от 420 €</div><div class="radio-desc">Всичко в Про + лого/визитка + 3 месеца поддръжка.</div></div>
+              <div><div class="radio-label">💎 Про+ — от 420 €</div><div class="radio-desc">Уебсайт до 3 страници + лого и визитка + 1 месец безплатна поддръжка.</div></div>
             </label>
             <label class="radio-item">
               <input type="radio" name="paket" value="Не съм сигурен" id="paket_none">
-              <div><div class="radio-label">🤷 Не съм сигурен</div><div class="radio-desc">Ще обсъдим заедно кое е най-подходящо.</div></div>
+              <div><div class="radio-label">🤷 Не съм сигурен</div><div class="radio-desc">Ще обсъдим заедно кое е най-подходящо за вас.</div></div>
             </label>
           </div>
         </div>
 
         <div class="field" style="margin-bottom:18px">
-          <label>Каква е основната цел на страницата? <span class="req">*</span></label>
+          <label>Каква е основната цел на сайта? <span class="req">*</span></label>
           <div class="radio-group">
             <label class="radio-item">
               <input type="radio" name="cel" value="Клиентите да ми се обаждат" required>
@@ -392,19 +431,19 @@
               <div><div class="radio-label">📅 Клиентите да записват час онлайн</div><div class="radio-desc">Форма за записване на час / услуга</div></div>
             </label>
             <label class="radio-item">
-              <input type="radio" name="cel" value="Изпращане на запитвания по имейл / форма">
-              <div><div class="radio-label">✉️ Изпращане на запитвания</div><div class="radio-desc">Форма за контакт и запитване</div></div>
+              <input type="radio" name="cel" value="Професионално онлайн присъствие">
+              <div><div class="radio-label">🌐 Професионално онлайн присъствие</div><div class="radio-desc">Да представя бизнеса си професионално и да ме намират онлайн</div></div>
             </label>
             <label class="radio-item">
               <input type="radio" name="cel" value="Не съм сигурен">
-              <div><div class="radio-label">🤷 Не съм сигурен</div><div class="radio-desc">Ще ми помогнете вие да решим</div></div>
+              <div><div class="radio-label">🤷 Не съм сигурен</div><div class="radio-desc">Ще ми помогнете да решим</div></div>
             </label>
           </div>
         </div>
 
         <div class="field">
           <label>Кои са вашите основни услуги? <span class="req">*</span></label>
-          <textarea name="uslugi" placeholder="Изброй услугите, които искате да се показват на сайта. напр: отпушване на канали, ремонт на течове, монтаж на бойлери..." required></textarea>
+          <textarea name="uslugi" placeholder="Избройте услугите, които искате да се показват на сайта. напр: отпушване на канали, ремонт на течове, монтаж на бойлери..." required></textarea>
           <span class="hint">Колкото повече детайли, толкова по-добър ще бъде резултатът.</span>
         </div>
       </div>
@@ -421,23 +460,58 @@
 
         <div class="field" style="margin-bottom:18px">
           <label>Предпочитан стил <span class="req">*</span></label>
-          <div class="radio-group">
-            <label class="radio-item">
-              <input type="radio" name="stil" value="Тъмен и сериозен" required>
-              <div><div class="radio-label">🌑 Тъмен и сериозен</div><div class="radio-desc">Тъмен фон, жълти/оранжеви акценти — внушава доверие и професионализъм</div></div>
+          <div class="style-grid">
+            <label class="style-card">
+              <input type="radio" name="stil" value="Тъмен и силен (графит + оранжево)" required>
+              <div class="swatches"><i style="background:#1a1f2e"></i><i style="background:#2b3242"></i><i style="background:#e8682a"></i><i style="background:#f4f6fa"></i></div>
+              <div class="style-name">Тъмен и силен</div>
+              <div class="style-for">Майстори, ремонти, строителство, автосервизи</div>
             </label>
-            <label class="radio-item">
-              <input type="radio" name="stil" value="Светъл и приятелски">
-              <div><div class="radio-label">☀️ Светъл и приятелски</div><div class="radio-desc">Бял фон, сини/червени акценти — топло и достъпно усещане</div></div>
+            <label class="style-card">
+              <input type="radio" name="stil" value="Светъл и чист (бяло + синьо)">
+              <div class="swatches"><i style="background:#ffffff"></i><i style="background:#e8f0fc"></i><i style="background:#2563eb"></i><i style="background:#1a3a6b"></i></div>
+              <div class="style-name">Светъл и чист</div>
+              <div class="style-for">Клиники, ветеринари, ВиК, счетоводители</div>
             </label>
-            <label class="radio-item">
-              <input type="radio" name="stil" value="Луксозен и елегантен">
-              <div><div class="radio-label">✨ Луксозен и елегантен</div><div class="radio-desc">Злато/черно/бяло — за козметика, салони, премиум услуги</div></div>
+            <label class="style-card">
+              <input type="radio" name="stil" value="Нежен и женствен (бяло + розово)">
+              <div class="swatches"><i style="background:#fff5f8"></i><i style="background:#fce8ef"></i><i style="background:#c2185b"></i><i style="background:#2d1f28"></i></div>
+              <div class="style-name">Нежен и женствен</div>
+              <div class="style-for">Козметични салони, маникюр, мигли, фризьори</div>
             </label>
-            <label class="radio-item">
+            <label class="style-card">
+              <input type="radio" name="stil" value="Луксозен (черно + злато)">
+              <div class="swatches"><i style="background:#0a0a0a"></i><i style="background:#1c1c1c"></i><i style="background:#c9a84c"></i><i style="background:#f5f0e8"></i></div>
+              <div class="style-name">Луксозен</div>
+              <div class="style-for">Барбершопи, премиум услуги, бутици</div>
+            </label>
+            <label class="style-card">
+              <input type="radio" name="stil" value="Природен и спокоен (крем + зелено)">
+              <div class="swatches"><i style="background:#f7f3ed"></i><i style="background:#e3ddd0"></i><i style="background:#2d4a3e"></i><i style="background:#c9a84c"></i></div>
+              <div class="style-name">Природен и спокоен</div>
+              <div class="style-for">Масажи, SPA, йога, домашна храна, торти</div>
+            </label>
+            <label class="style-card any">
               <input type="radio" name="stil" value="Нямам предпочитание">
-              <div><div class="radio-label">🎨 Нямам предпочитание</div><div class="radio-desc">Вие да изберете най-подходящия за моя бизнес</div></div>
+              <div class="swatches"></div>
+              <div class="style-name">Нямам предпочитание</div>
+              <div class="style-for">Вие изберете най-подходящия за моя бизнес</div>
             </label>
+          </div>
+        </div>
+
+        <div class="field-row two">
+          <div class="field">
+            <label>Имате ли фирмени цветове?</label>
+            <select name="firmeni_cvetove" id="brandSelect">
+              <option value="">— Изберете —</option>
+              <option>Да, имам</option>
+              <option>Не, нямам</option>
+            </select>
+          </div>
+          <div class="field brand-colors" id="brandColors">
+            <label>Кои са вашите цветове?</label>
+            <input type="text" name="cvetove" placeholder="напр. тъмносиньо и бяло, или #1a3a6b">
           </div>
         </div>
 
@@ -475,7 +549,7 @@
           <div class="section-num">5</div>
           <div>
             <h2>Допълнителни услуги</h2>
-            <p>Изберете всичко което ви интересува (по желание)</p>
+            <p>Изберете всичко, което ви интересува (по желание)</p>
           </div>
         </div>
         <div class="field">
@@ -528,7 +602,7 @@
 
         <div class="field-row two">
           <div class="field">
-            <label>Как научихте за нас?</label>
+            <label>Откъде научихте за ChilikovWeb?</label>
             <select name="kak_nauchihte">
               <option value="">— Изберете —</option>
               <option>Facebook</option>
@@ -538,6 +612,16 @@
               <option>Друго</option>
             </select>
           </div>
+          <div class="field">
+            <label>Как предпочитате да се свържем с вас?</label>
+            <select name="vruzka">
+              <option value="">— Изберете —</option>
+              <option>Обаждане по телефона</option>
+              <option>Viber</option>
+              <option>Имейл</option>
+            </select>
+          </div>
+        </div>
 
         <div class="field">
           <label>Допълнителни въпроси или бележки</label>
@@ -549,7 +633,7 @@
       <div class="submit-area">
         <div class="submit-note">
           <strong>Какво се случва след това?</strong><br>
-          Ще се свържем с вас до 24 часа с оферта и примерен дизайн. Без ангажимент.
+          Свързваме се с вас до 24 часа. Примерният дизайн е безплатен и без ангажимент.
         </div>
         <button type="submit" class="btn-submit">📤 Изпрати заявката →</button>
       </div>
@@ -557,7 +641,7 @@
       <div class="success-msg" id="successMsg">
         <div class="success-icon">🎉</div>
         <h3>Заявката е изпратена успешно!</h3>
-        <p>Ще се свържем с вас до 24 часа. Очаквайте обаждане или имейл от нас.</p>
+        <p>Ще се свържем с вас до 24 часа — по телефона, във Viber или по имейл.</p>
       </div>
 
     </form>
@@ -565,87 +649,73 @@
 </div>
 
 <footer>
-  <p><a href="https://chilikovweb.com" target="_blank" style="color:var(--blue-mid); font-weight:700; text-decoration:none;">ChilikovWeb</a> · Въпроси? <a href="/cdn-cgi/l/email-protection#620a070e0e0d22010a0b0e0b090d141507004c010d0f" style="color:var(--blue-mid);"><span class="__cf_email__" data-cfemail="19717c757576597a7170757072766f6e7c7b377a7674">[email&#160;protected]</span></a></p>
+  <p><a href="https://chilikovweb.com" target="_blank" style="color:var(--blue-mid); font-weight:700; text-decoration:none;">ChilikovWeb</a> · Въпроси? hello&#64;chilikovweb&#46;com</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Progress bar based on filled fields
-  const form = document.getElementById('clientForm');
-  const progressFill = document.getElementById('progressFill');
 
-  function updateProgress() {
-    const required = form.querySelectorAll('[required]');
-    let filled = 0;
-    required.forEach(el => {
-      if (el.type === 'radio') {
-        const group = form.querySelectorAll(`[name="${el.name}"]:checked`);
-        if (group.length > 0) filled++;
-      } else if (el.value.trim() !== '') {
-        filled++;
-      }
-    });
-    // Count unique radio groups
-    const radioGroups = new Set([...form.querySelectorAll('[type="radio"][required]')].map(r => r.name));
-    const totalRequired = form.querySelectorAll('[required]:not([type="radio"])').length + radioGroups.size;
-    const pct = Math.min(100, Math.round((filled / totalRequired) * 100));
-    progressFill.style.width = pct + '%';
+
+<script data-cfasync="false">
+(function() {
+  // ── Preselect package from URL ──
+  var params = new URLSearchParams(window.location.search);
+  var paket = params.get('paket');
+  var map = { 'start': 'paket_start', 'pro': 'paket_pro', 'proplus': 'paket_proplus' };
+  if (paket && map[paket]) {
+    var el = document.getElementById(map[paket]);
+    if (el) {
+      el.checked = true;
+      el.closest('.radio-item').style.borderColor = '#2563eb';
+      el.closest('.radio-item').style.background = '#e8f0fc';
+      setTimeout(function() {
+        el.closest('.form-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 400);
+    }
   }
 
-  form.addEventListener('input', updateProgress);
-  form.addEventListener('change', updateProgress);
+  // ── Brand colors field ──
+  var bs = document.getElementById('brandSelect'), bc = document.getElementById('brandColors');
+  if (bs && bc) bs.addEventListener('change', function(){ bc.classList.toggle('show', bs.value === 'Да, имам'); });
 
-  // ── Read ?paket= URL param and preselect ──
-  (function() {
-    var params = new URLSearchParams(window.location.search);
-    var paket = params.get('paket');
-    var map = {
-      'start':   'paket_start',
-      'pro':     'paket_pro',
-      'proplus': 'paket_proplus'
-    };
-    if (paket && map[paket]) {
-      var el = document.getElementById(map[paket]);
-      if (el) {
-        el.checked = true;
-        // Highlight the selected radio item
-        el.closest('.radio-item').style.borderColor = '#2563eb';
-        el.closest('.radio-item').style.background = '#e8f0fc';
-        // Scroll to package section smoothly
-        setTimeout(function() {
-          el.closest('.form-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 400);
+  // ── At least one category ──
+  var f = document.getElementById('clientForm'), ke = document.getElementById('katError');
+  if (f && ke) {
+    f.addEventListener('submit', function(ev){
+      if (!f.querySelector('[name="kategoriya"]:checked')) {
+        ev.preventDefault(); ke.style.display = 'block';
+        ke.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
-    }
-  })();
+    });
+    f.addEventListener('change', function(ev){
+      if (ev.target.name === 'kategoriya' && f.querySelector('[name="kategoriya"]:checked')) ke.style.display = 'none';
+    });
+  }
 
-  // Formspree AJAX submit
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-submit');
-    btn.textContent = '⏳ Изпращане...';
-    btn.disabled = true;
-
-    try {
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+  // ── Progress bar ──
+  var form = document.getElementById('clientForm');
+  var progressFill = document.getElementById('progressFill');
+  if (form && progressFill) {
+    function updateProgress() {
+      var required = form.querySelectorAll('[required]');
+      var filled = 0;
+      var radioGroups = new Set();
+      required.forEach(function(el) {
+        if (el.type === 'radio') {
+          radioGroups.add(el.name);
+        } else if (el.value.trim() !== '') {
+          filled++;
+        }
       });
-
-      if (res.ok) {
-        form.querySelectorAll('.form-section, .submit-area').forEach(s => s.style.display = 'none');
-        document.getElementById('successMsg').style.display = 'block';
-      } else {
-        btn.textContent = '❌ Грешка — опитайте отново';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = '❌ Грешка — опитайте отново';
-      btn.disabled = false;
+      radioGroups.forEach(function(name) {
+        if (form.querySelector('[name="' + name + '"]:checked')) filled++;
+      });
+      var total = form.querySelectorAll('[required]:not([type="radio"])').length + radioGroups.size;
+      progressFill.style.width = Math.min(100, Math.round((filled / total) * 100)) + '%';
     }
-  });
-
+    form.addEventListener('input', updateProgress);
+    form.addEventListener('change', updateProgress);
+  }
+})();
 </script>
+
 </body>
 </html>
