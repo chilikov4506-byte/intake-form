@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Благодарим! | ChilikovWeb</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230b1220%22/%3E%3Cg fill=%22none%22 stroke-width=%228%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M26 32 L11 50 L26 68%22 stroke=%22%233b82f6%22/%3E%3Cpath d=%22M55 39 A14 14 0 1 0 55 61%22 stroke=%22%23f8fafc%22/%3E%3Cpath d=%22M69 32 L63 68%22 stroke=%22%233b82f6%22/%3E%3Cpath d=%22M76 32 L91 50 L76 68%22 stroke=%22%233b82f6%22/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0b1a3a; --text: #1e293b; --muted: #55657e; --subtle: #8b9ab2; --blue: #2563eb; --violet: #7c3aed; --pink: #ec4899; --green: #10b981; --hair: rgba(37,64,140,.10);
+    --joy: linear-gradient(100deg, #2563eb 0%, #7c3aed 55%, #ec4899 100%);
+    --serif: 'Playfair Display', Georgia, serif; --sans: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif; --ease: cubic-bezier(.22,.61,.36,1); --spring: cubic-bezier(.34,1.56,.64,1); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { overflow-x: hidden; overflow-x: clip; }
+  body { font-family: var(--sans); color: var(--text); min-height: 100vh; min-height: 100svh; font-weight: 300; line-height: 1.6; font-feature-settings: "locl" 0; overflow-x: hidden; overflow-x: clip;
+    background: radial-gradient(1100px 600px at 85% -10%, #e4ecff 0%, transparent 60%), radial-gradient(900px 500px at -10% 30%, #f3e8ff 0%, transparent 60%), radial-gradient(800px 500px at 60% 110%, #ffedd5 0%, transparent 60%), #f6f8ff;
+    display: flex; flex-direction: column; }
+  body::before { content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(37,99,235,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,.05) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%); mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 75%); }
+  .sparkles, .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .confetti { z-index: 20; }
+  .sparkles i { position: absolute; width: 6px; height: 6px; border-radius: 50%; opacity: 0; animation: twinkle 4.5s ease-in-out infinite; }
+  @keyframes twinkle { 0%, 100% { opacity: 0; transform: scale(.4); } 50% { opacity: .9; transform: scale(1); } }
+  .confetti i { position: absolute; top: -20px; width: 9px; height: 14px; border-radius: 2px; opacity: 0; animation: rain var(--d) linear var(--w) forwards; }
+  @keyframes rain { 0% { opacity: 1; transform: translate(0, 0) rotate(0); } 100% { opacity: 1; transform: translate(var(--x), 110vh) rotate(var(--r)); } }
+  .burst i { position: absolute; width: 8px; height: 12px; border-radius: 2px; opacity: 0; animation: burst 1.4s cubic-bezier(.2,.6,.4,1) forwards; }
+  @keyframes burst { 0% { opacity: 1; transform: translate(0,0) rotate(0); } 100% { opacity: 0; transform: translate(var(--x), var(--y)) rotate(var(--r)); } }
+
+  header { position: relative; z-index: 2; display: flex; justify-content: center; padding: 26px 20px 0; }
+  header svg { height: 28px; width: auto; }
+  main { position: relative; z-index: 2; flex: 1; display: flex; align-items: center; justify-content: center; padding: 30px 20px 50px; }
+  .card { position: relative; width: 100%; max-width: 620px; background: rgba(255,255,255,.9); border-radius: 26px; padding: 52px 46px 40px; text-align: center; box-shadow: 0 30px 80px rgba(37,64,140,.14), 0 0 0 1px rgba(37,64,140,.06); animation: cardIn .9s var(--ease) both; }
+  .card::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; border-radius: 26px 26px 0 0; background: var(--joy); }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(30px) scale(.97); } to { opacity: 1; transform: none; } }
+
+  .badge { position: relative; width: 108px; height: 108px; margin: 0 auto 26px; }
+  .badge .ring { position: absolute; inset: 0; border-radius: 50%; background: var(--joy); animation: pulse 2.6s ease-out 1.2s infinite; opacity: .25; }
+  @keyframes pulse { 0% { transform: scale(1); opacity: .35; } 100% { transform: scale(1.55); opacity: 0; } }
+  .badge .core { position: absolute; inset: 0; border-radius: 50%; background: var(--joy); display: flex; align-items: center; justify-content: center; box-shadow: 0 18px 40px rgba(124,58,237,.35); transform: scale(0); animation: popIn .7s var(--spring) .25s forwards; }
+  @keyframes popIn { to { transform: scale(1); } }
+  .badge svg { width: 52px; height: 52px; }
+  .badge path { fill: none; stroke: #fff; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40; stroke-dashoffset: 40; animation: draw .6s var(--ease) .8s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: .68rem; font-weight: 500; letter-spacing: .38em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+  .eyebrow::before, .eyebrow::after { content: ''; width: 26px; height: 1px; background: var(--joy); }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.1; color: var(--ink); margin-bottom: 14px; }
+  h1 em { font-style: italic; font-weight: 400; background: var(--joy); -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .06em; }
+  .lead { font-size: 1.05rem; color: var(--muted); max-width: 470px; margin: 0 auto 30px; }
+  .lead b { color: var(--text); font-weight: 500; }
+  .rise { opacity: 0; animation: rise .8s var(--ease) forwards; animation-delay: var(--t, 0s); }
+  @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+  .tl { text-align: left; position: relative; margin: 0 auto 30px; max-width: 470px; }
+  .tl::before { content: ''; position: absolute; left: 19px; top: 22px; bottom: 22px; width: 2px; background: #e6ebf7; border-radius: 2px; }
+  .tl::after { content: ''; position: absolute; left: 19px; top: 22px; width: 2px; height: calc(100% - 44px); background: var(--joy); border-radius: 2px; transform-origin: top; transform: scaleY(0); animation: grow 1.6s var(--ease) 1.4s forwards; }
+  @keyframes grow { to { transform: scaleY(1); } }
+  .st { position: relative; z-index: 1; display: flex; gap: 16px; align-items: flex-start; padding: 10px 0; }
+  .st .n { width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 2px solid #e6ebf7; color: var(--subtle); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--serif); font-size: 1rem; transition: all .5s var(--ease); }
+  .st.done .n { background: var(--joy); border-color: transparent; color: #fff; box-shadow: 0 8px 20px rgba(124,58,237,.25); }
+  .st.now .n { border-color: #a5b4fc; color: var(--violet); box-shadow: 0 0 0 6px rgba(139,92,246,.1); }
+  .st h4 { font-weight: 500; font-size: 1rem; color: var(--ink); margin-top: 1px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .st h4 small { font-size: .62rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 3px 8px; border-radius: 20px; }
+  .st.done h4 small { background: rgba(16,185,129,.12); color: var(--green); }
+  .st.now h4 small { background: rgba(139,92,246,.12); color: var(--violet); }
+  .st p { font-size: .9rem; color: var(--muted); line-height: 1.5; }
+
+  .meanwhile { background: linear-gradient(120deg, rgba(37,99,235,.06), rgba(236,72,153,.06)); border: 1px solid #dbe4ff; border-radius: 16px; padding: 18px 20px; margin: 0 auto 26px; max-width: 470px; text-align: left; display: flex; gap: 14px; align-items: center; }
+  .meanwhile .i { font-size: 1.6rem; }
+  .meanwhile b { display: block; font-weight: 500; color: var(--ink); font-size: .95rem; }
+  .meanwhile span { font-size: .86rem; color: var(--muted); }
+
+  .btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: .74rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; padding: 17px 26px; border-radius: 40px; text-decoration: none; transition: transform .4s var(--ease), box-shadow .4s, background-position .6s var(--ease), border-color .3s; }
+  .btn-primary { background: var(--joy); background-size: 160% 100%; color: #fff; box-shadow: 0 12px 34px rgba(124,58,237,.3); }
+  .btn-primary:hover { background-position: 100% 0; transform: translateY(-2px); box-shadow: 0 16px 44px rgba(124,58,237,.4); }
+  .btn-ghost { border: 1px solid rgba(37,64,140,.18); color: var(--ink); background: #fff; }
+  .btn-ghost:hover { border-color: #a5b4fc; transform: translateY(-2px); }
+  .btn svg { width: 16px; height: 16px; }
+  .sign { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--hair); font-size: .9rem; color: var(--muted); }
+  .sign em { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); }
+  footer { position: relative; z-index: 2; text-align: center; padding: 0 20px 26px; font-size: .8rem; color: var(--subtle); }
+  footer a { color: var(--blue); text-decoration: none; }
+
+  @media (max-width: 560px) {
+    header { padding-top: 20px; } header svg { height: 24px; }
+    main { padding: 22px 14px 36px; align-items: flex-start; }
+    .card { padding: 40px 22px 30px; border-radius: 20px; }
+    .badge { width: 88px; height: 88px; margin-bottom: 20px; } .badge svg { width: 42px; height: 42px; }
+    .lead { font-size: .98rem; margin-bottom: 24px; }
+    .btn { width: 100%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .rise, .card { opacity: 1; } .badge .core { transform: none; } .badge path { stroke-dashoffset: 0; } .tl::after { transform: none; }
+    .confetti, .sparkles { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="sparkles" id="sparkles" aria-hidden="true"></div>
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<header><a href="https://chilikovweb.com" aria-label="ChilikovWeb"><svg viewBox="0 26 421 48" height="30" role="img" aria-label="ChilikovWeb" style="display:block;width:auto"><g><g fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 30 L8 50 L24 70" stroke="#2563eb"/><path d="M55 38 A15 15 0 1 0 55 62" stroke="#0b1a3a"/><path d="M70 30 L63 70" stroke="#2563eb"/><path d="M78 30 L94 50 L78 70" stroke="#2563eb"/></g></g><path d="M144.794921875 63.775390625Q143.205078125 64.69921875 141.5185546875 65.1611328125Q139.83203125 65.623046875 138.0703125 65.623046875Q132.484375 65.623046875 129.3369140625 62.271484375Q126.189453125 58.919921875 126.189453125 52.990234375Q126.189453125 47.060546875 129.3369140625 43.708984375Q132.484375 40.357421875 138.0703125 40.357421875Q139.810546875 40.357421875 141.46484375 40.80859375Q143.119140625 41.259765625 144.794921875 42.205078125V46.3515625Q143.2265625 44.955078125 141.6474609375 44.33203125Q140.068359375 43.708984375 138.0703125 43.708984375Q134.353515625 43.708984375 132.35546875 46.115234375Q130.357421875 48.521484375 130.357421875 52.990234375Q130.357421875 57.4375 132.3662109375 59.8544921875Q134.375 62.271484375 138.0703125 62.271484375Q140.1328125 62.271484375 141.765625 61.6376953125Q143.3984375 61.00390625 144.794921875 59.671875ZM171.0703125 50.08984375V65.0H167.095703125V50.08984375Q167.095703125 46.845703125 165.95703125 45.3203125Q164.818359375 43.794921875 162.390625 43.794921875Q159.619140625 43.794921875 158.1259765625 45.7607421875Q156.6328125 47.7265625 156.6328125 51.400390625V65.0H152.6796875V31.5703125H156.6328125V44.546875Q157.685546875 42.484375 159.490234375 41.4208984375Q161.294921875 40.357421875 163.765625 40.357421875Q167.439453125 40.357421875 169.2548828125 42.7744140625Q171.0703125 45.19140625 171.0703125 50.08984375ZM180.48046875 40.9375H190.599609375V61.927734375H198.44140625V65.0H178.8046875V61.927734375H186.646484375V44.009765625H180.48046875ZM186.646484375 31.5703125H190.599609375V36.576171875H186.646484375ZM215.19921875 56.27734375Q215.19921875 58.94140625 216.1767578125 60.294921875Q217.154296875 61.6484375 219.06640625 61.6484375H223.685546875V65.0H218.6796875Q215.134765625 65.0 213.1904296875 62.72265625Q211.24609375 60.4453125 211.24609375 56.27734375V34.427734375H204.908203125V31.333984375H215.19921875ZM233.4609375 40.9375H243.580078125V61.927734375H251.421875V65.0H231.78515625V61.927734375H239.626953125V44.009765625H233.4609375ZM239.626953125 31.5703125H243.580078125V36.576171875H239.626953125ZM259.521484375 31.5703125H263.603515625V50.927734375L273.98046875 40.9375H278.79296875L269.318359375 50.00390625L280.275390625 65.0H275.44140625L266.546875 52.58203125L263.603515625 55.353515625V65.0H259.521484375ZM294.17578125 43.708984375Q291.16796875 43.708984375 289.62109375 46.05078125Q288.07421875 48.392578125 288.07421875 52.990234375Q288.07421875 57.56640625 289.62109375 59.9189453125Q291.16796875 62.271484375 294.17578125 62.271484375Q297.205078125 62.271484375 298.751953125 59.9189453125Q300.298828125 57.56640625 300.298828125 52.990234375Q300.298828125 48.392578125 298.751953125 46.05078125Q297.205078125 43.708984375 294.17578125 43.708984375ZM294.17578125 40.357421875Q299.181640625 40.357421875 301.8349609375 43.6015625Q304.48828125 46.845703125 304.48828125 52.990234375Q304.48828125 59.15625 301.845703125 62.3896484375Q299.203125 65.623046875 294.17578125 65.623046875Q289.169921875 65.623046875 286.52734375 62.3896484375Q283.884765625 59.15625 283.884765625 52.990234375Q283.884765625 46.845703125 286.52734375 43.6015625Q289.169921875 40.357421875 294.17578125 40.357421875ZM309.580078125 40.9375H313.68359375L320.666015625 61.1328125L327.669921875 40.9375H331.7734375L323.22265625 65.0H318.130859375Z" fill="#0b1a3a"/><path d="M333.921875 40.9375H337.83203125L342.021484375 60.380859375L345.458984375 47.962890625H348.83203125L352.3125 60.380859375L356.501953125 40.9375H360.412109375L354.783203125 65.0H351.001953125L347.15625 51.80859375L343.33203125 65.0H339.55078125ZM384.302734375 51.98046875V53.9140625H367.1796875V54.04296875Q367.1796875 57.974609375 369.2314453125 60.123046875Q371.283203125 62.271484375 375.021484375 62.271484375Q376.912109375 62.271484375 378.974609375 61.669921875Q381.037109375 61.068359375 383.37890625 59.84375V63.775390625Q381.123046875 64.69921875 379.0283203125 65.1611328125Q376.93359375 65.623046875 374.978515625 65.623046875Q369.37109375 65.623046875 366.212890625 62.2607421875Q363.0546875 58.8984375 363.0546875 52.990234375Q363.0546875 47.232421875 366.1484375 43.794921875Q369.2421875 40.357421875 374.3984375 40.357421875Q378.99609375 40.357421875 381.6494140625 43.47265625Q384.302734375 46.587890625 384.302734375 51.98046875ZM380.349609375 50.8203125Q380.263671875 47.33984375 378.7060546875 45.5244140625Q377.1484375 43.708984375 374.2265625 43.708984375Q371.369140625 43.708984375 369.521484375 45.599609375Q367.673828125 47.490234375 367.330078125 50.841796875ZM406.625 52.990234375Q406.625 48.392578125 405.1640625 46.05078125Q403.703125 43.708984375 400.845703125 43.708984375Q397.966796875 43.708984375 396.484375 46.0615234375Q395.001953125 48.4140625 395.001953125 52.990234375Q395.001953125 57.544921875 396.484375 59.908203125Q397.966796875 62.271484375 400.845703125 62.271484375Q403.703125 62.271484375 405.1640625 59.9296875Q406.625 57.587890625 406.625 52.990234375ZM395.001953125 44.009765625Q395.947265625 42.248046875 397.6123046875 41.302734375Q399.27734375 40.357421875 401.46875 40.357421875Q405.80859375 40.357421875 408.30078125 43.6982421875Q410.79296875 47.0390625 410.79296875 52.904296875Q410.79296875 58.85546875 408.2900390625 62.2392578125Q405.787109375 65.623046875 401.42578125 65.623046875Q399.27734375 65.623046875 397.6337890625 64.6884765625Q395.990234375 63.75390625 395.001953125 61.970703125V65.0H391.048828125V31.5703125H395.001953125Z" fill="#2563eb"/></svg></a></header>
+
+<main>
+  <div class="card">
+    <div class="badge burst" id="badge" aria-hidden="true"><span class="ring"></span><span class="core"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></div>
+    <div class="eyebrow rise" style="--t:.55s">Заявката е получена</div>
+    <h1 class="rise" style="--t:.7s">Благодарим ви!<br>Вече мислим за <em>вашия&nbsp;сайт</em></h1>
+    <p class="lead rise" style="--t:.85s" id="lead">Получихме вашето запитване и ще се свържем с вас <b>лично до 24 часа</b>, за да обсъдим детайлите.</p>
+
+    <div class="tl rise" style="--t:1s">
+      <div class="st done"><span class="n">✓</span><div><h4>Изпратихте заявката <small>Готово</small></h4><p>Всичко, което ни разказахте, е при нас.</p></div></div>
+      <div class="st now"><span class="n">2</span><div><h4>Ще се свържем до 24 часа <small>Следва</small></h4><p>Очаквайте обаждане, Viber или имейл от hello@chilikovweb.com.</p></div></div>
+      <div class="st"><span class="n">3</span><div><h4>Обсъждаме детайлите</h4><p>Разговор за вашия бизнес, стил и какво точно искате от сайта.</p></div></div>
+      <div class="st"><span class="n">4</span><div><h4>Примерен дизайн — безплатно</h4><p>Правим дизайн и ви го изпращаме. Само ако харесате — продължаваме.</p></div></div>
+    </div>
+
+    <div class="meanwhile rise" style="--t:1.2s"><span class="i">💡</span><div><b>Докато чакате</b><span>Пригответе лого и няколко снимки на работата си — с тях дизайнът става още по-ваш.</span></div></div>
+
+    <div class="btns rise" style="--t:1.35s">
+      <a class="btn btn-primary" href="https://chilikovweb.com/#portfolio">Разгледайте примери →</a>
+      <a class="btn btn-ghost" href="https://viber.me/359899819682" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c-5.2 0-9 2.9-9 7.9 0 2.7 1 4.6 2.8 5.8v3.6l3.2-2.4c1 .2 2 .3 3 .3 5.2 0 9-2.4 9-7.3S17.2 2.5 12 2.5z"/></svg>Пишете ни във Viber</a>
+    </div>
+
+    <div class="sign rise" style="--t:1.5s">С нетърпение,<br><em>Вероника и Ивайло</em> · ChilikovWeb</div>
+  </div>
+</main>
+
+<footer><a href="https://chilikovweb.com">← Обратно към сайта</a> · hello&#64;chilikovweb&#46;com · +359 899 819 682</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var C = ['#2563eb', '#7c3aed', '#ec4899', '#fb923c', '#38bdf8', '#facc15', '#10b981'];
+  var sp = document.getElementById('sparkles');
+  if (!reduce) for (var s = 0; s < 20; s++) { var d = document.createElement('i'); d.style.cssText = 'left:' + (Math.random() * 100) + '%;top:' + (Math.random() * 100) + '%;background:' + C[s % C.length] + ';animation-delay:' + (-Math.random() * 4.5).toFixed(2) + 's;animation-duration:' + (3.5 + Math.random() * 3).toFixed(2) + 's'; sp.appendChild(d); }
+  if (reduce) return;
+  // дъжд от конфети
+  var box = document.getElementById('confetti'), n = window.innerWidth < 600 ? 70 : 130;
+  for (var i = 0; i < n; i++) {
+    var c = document.createElement('i');
+    c.style.cssText = 'left:' + (Math.random() * 100) + '%;background:' + C[i % C.length] + ';--x:' + Math.round(Math.random() * 200 - 100) + 'px;--r:' + Math.round(Math.random() * 1080 - 540) + 'deg;--d:' + (2.4 + Math.random() * 2.2).toFixed(2) + 's;--w:' + (0.3 + Math.random() * 1.4).toFixed(2) + 's;' + (i % 4 === 0 ? 'border-radius:50%;width:8px;height:8px;' : '');
+    box.appendChild(c);
+  }
+  setTimeout(function () { box.innerHTML = ''; }, 6500);
+  // взрив около отметката
+  var badge = document.getElementById('badge');
+  setTimeout(function () {
+    for (var j = 0; j < 26; j++) {
+      var b = document.createElement('i'), a = (j / 26) * Math.PI * 2, r = 70 + Math.random() * 70;
+      b.style.cssText = 'left:50%;top:50%;background:' + C[j % C.length] + ';--x:' + Math.round(Math.cos(a) * r) + 'px;--y:' + Math.round(Math.sin(a) * r) + 'px;--r:' + Math.round(Math.random() * 540) + 'deg';
+      badge.appendChild(b);
+    }
+  }, 450);
+  // бутон за повторно конфети при клик върху отметката
+  badge.style.cursor = 'pointer';
+  badge.addEventListener('click', function () { badge.querySelectorAll('i').forEach(function (x) { x.style.animation = 'none'; void x.offsetWidth; x.style.animation = ''; }); });
+})();
+</script>
+</body>
+</html>
