@@ -425,25 +425,25 @@
         <!-- 1. ЗА ВАС -->
         <section class="step on" data-step="0">
           <h2>Да се <em>запознаем</em></h2>
-          <p class="sub">Основна информация, за да можем да се свържем с вас.</p>
+          <p class="sub">Само как да се свържем с вас — отнема 20 секунди.</p>
           <div class="stagger">
             <div class="grid2">
               <div class="f"><label class="lbl" for="f_ime">Вашето име<span class="req">*</span></label><div class="in"><input id="f_ime" type="text" name="ime" placeholder="Иван Петров" autocomplete="name" required><span class="ok">✓</span></div><div class="err">Моля, напишете името си.</div></div>
               <div class="f"><label class="lbl" for="f_tel">Телефон<span class="req">*</span></label><div class="in"><input id="f_tel" type="tel" name="telefon" placeholder="08XX XXX XXX" autocomplete="tel" required><span class="ok">✓</span></div><div class="err">Моля, въведете телефон.</div></div>
             </div>
-            <div class="grid2">
-              <div class="f"><label class="lbl" for="f_mail">Имейл<span class="req">*</span></label><div class="in"><input id="f_mail" type="email" name="email" placeholder="ivan@example.com" autocomplete="email" required><span class="ok">✓</span></div><div class="err">Моля, въведете валиден имейл.</div></div>
-              <div class="f"><label class="lbl" for="f_grad">Град<span class="req">*</span></label><div class="in"><input id="f_grad" type="text" name="grad" placeholder="напр. София" autocomplete="address-level2" required><span class="ok">✓</span></div><div class="err">Моля, напишете града.</div></div>
-            </div>
-            <div class="f"><label class="lbl" for="f_biz">Име на бизнеса / фирмата<span class="req">*</span></label><div class="in"><input id="f_biz" type="text" name="biznes_ime" placeholder="напр. ВиК Про, Салон Елегант..." autocomplete="organization" required><span class="ok">✓</span></div><div class="err">Моля, напишете името на бизнеса.</div></div>
+            <div class="f"><label class="lbl" for="f_mail">Имейл <small style="opacity:.6;font-weight:400">(по желание)</small></label><div class="in"><input id="f_mail" type="email" name="email" placeholder="ivan@example.com" autocomplete="email"><span class="ok">✓</span></div><div class="err">Моля, въведете валиден имейл.</div></div>
           </div>
         </section>
 
         <!-- 2. БИЗНЕС -->
         <section class="step" data-step="1">
           <h2>С какво се <em>занимавате?</em></h2>
-          <p class="sub">Изберете категорията, която ви описва най-добре.</p>
+          <p class="sub">Разкажете ни накратко за бизнеса си.</p>
           <div class="stagger">
+            <div class="grid2">
+              <div class="f"><label class="lbl" for="f_biz">Име на бизнеса / фирмата<span class="req">*</span></label><div class="in"><input id="f_biz" type="text" name="biznes_ime" placeholder="напр. ВиК Про, Салон Елегант..." autocomplete="organization" required><span class="ok">✓</span></div><div class="err">Моля, напишете името на бизнеса.</div></div>
+              <div class="f"><label class="lbl" for="f_grad">Град</label><div class="in"><input id="f_grad" type="text" name="grad" placeholder="напр. София" autocomplete="address-level2"><span class="ok">✓</span></div><div class="err">Моля, напишете града.</div></div>
+            </div>
             <div class="f" data-group="kategoriya">
               <div class="tiles">
                 <label class="opt"><input type="radio" name="kategoriya" value="ВиК / Водопроводчик"><span class="box"><span class="emo">🔧</span><span class="nm">ВиК / Водопроводчик</span><span class="tick">✓</span><span class="ripple"></span></span></label>
@@ -470,8 +470,8 @@
             <div class="f"><span class="lbl">Кой пакет ви интересува?</span>
               <div class="cards">
                 <label class="opt"><input type="radio" name="paket" value="Старт — от 150 €" id="paket_start"><span class="box"><span class="top"><span class="ttl">Старт</span><span class="pr">от 150 €</span></span><span class="ds">Професионален уебсайт (1 страница) + форма за контакт.</span><span class="tick">✓</span><span class="ripple"></span></span></label>
-                <label class="opt"><input type="radio" name="paket" value="Про — от 280 €" id="paket_pro"><span class="box"><span class="top"><span class="ttl">Про</span><span class="pr">от 280 €</span><span class="badge">Популярен</span></span><span class="ds">Уебсайт + онлайн записване (1-ви месец включен) + базово лого.</span><span class="tick">✓</span><span class="ripple"></span></span></label>
-                <label class="opt"><input type="radio" name="paket" value="Про+ — от 420 €" id="paket_proplus"><span class="box"><span class="top"><span class="ttl">Про+</span><span class="pr">от 420 €</span></span><span class="ds">До 3 страници + онлайн записване (3 месеца включени) + лого и визитка.</span><span class="tick">✓</span><span class="ripple"></span></span></label>
+                <label class="opt"><input type="radio" name="paket" value="Про — от 280 €" id="paket_pro"><span class="box"><span class="top"><span class="ttl">Про</span><span class="pr">от 280 €</span><span class="badge">Популярен</span></span><span class="ds">Уебсайт + собствена система за записване + 1 година „Грижа“ + базово лого.</span><span class="tick">✓</span><span class="ripple"></span></span></label>
+                <label class="opt"><input type="radio" name="paket" value="Про+ — от 420 €" id="paket_proplus"><span class="box"><span class="top"><span class="ttl">Про+</span><span class="pr">от 420 €</span></span><span class="ds">До 3 страници + система за записване + лесно самостоятелно управление + 1 година „Грижа“ + лого и визитка.</span><span class="tick">✓</span><span class="ripple"></span></span></label>
                 <label class="opt"><input type="radio" name="paket" value="Не съм сигурен" id="paket_none"><span class="box"><span class="top"><span class="ttl">Не съм сигурен</span></span><span class="ds">Ще обсъдим заедно кое е най-подходящо за вас.</span><span class="tick">✓</span><span class="ripple"></span></span></label>
               </div>
               <span class="hint">Всички пакети включват 30 дни безплатни корекции.</span>
@@ -541,7 +541,7 @@
             <div class="f extras">
               <div class="group">Онлайн записване</div>
               <div class="cards">
-                <label class="opt star"><input type="checkbox" name="extra" value="Собствена система за записване (100 € + 10 €/мес)"><span class="box"><span class="emo">📅</span><span class="nm">Собствена система<small>без комисиони · настройка 100 €</small></span><span class="price">10 €/мес</span><span class="tick">✓</span><span class="ripple"></span></span></label>
+                <label class="opt star"><input type="checkbox" name="extra" value="Собствена система за записване (включена в Про и Про+)"><span class="box"><span class="emo">📅</span><span class="nm">Собствена система<small>без комисиони · без месечни такси</small></span><span class="price">в Про и Про+</span><span class="tick">✓</span><span class="ripple"></span></span></label>
                 <label class="opt"><input type="checkbox" name="extra" value="Свързване с Fresha/SimplyBook/Calendly (60 €)"><span class="box"><span class="emo">🔗</span><span class="nm">Fresha, SimplyBook или Calendly<small>+ таксите на платформата</small></span><span class="price">60 €</span><span class="tick">✓</span><span class="ripple"></span></span></label>
               </div>
               <div class="group">Визия</div>
@@ -551,7 +551,7 @@
                 <label class="opt"><input type="checkbox" name="extra" value="Визитки — дизайн + печат 100 бр. (35 €)"><span class="box"><span class="emo">🪪</span><span class="nm">Визитки — дизайн + печат<small>100 бр., матов ламинат</small></span><span class="price">35 €</span><span class="tick">✓</span><span class="ripple"></span></span></label>
                 <label class="opt"><input type="checkbox" name="extra" value="Facebook & Instagram настройка (70 €)"><span class="box"><span class="emo">📱</span><span class="nm">Facebook &amp; Instagram<small>профили, корица, 3 поста</small></span><span class="price">70 €</span><span class="tick">✓</span><span class="ripple"></span></span></label>
               </div>
-              <span class="hint" style="margin-top:16px">Промени по сайта след предаването — от 15 € на промяна, само когато имате нужда. Без месечен абонамент.</span>
+              <span class="hint" style="margin-top:16px">При Про и Про+ — 1 година „Грижа“ е включена (до 2 малки промени на месец, помощ при проблем), след това 99 € на година. При Старт — промени от 15 € на брой, само когато имате нужда. Без месечни такси.</span>
             </div>
           </div>
         </section>
@@ -561,7 +561,7 @@
           <h2>Почти <em>готово!</em></h2>
           <p class="sub">Няколко последни детайла и изпращате заявката.</p>
           <div class="stagger">
-            <div class="note"><span class="i">✦</span><span><strong>Домейн и хостинг</strong> се купуват от вас, на ваше име — домейн (напр. vikpro-sofia.bg) около <strong>16–30 €/год.</strong> и хостинг от около <strong>21 € за първата година</strong>. Ще ви изпратим кратък наръчник стъпка по стъпка.</span></div>
+            <div class="note"><span class="i">✦</span><span><strong>Домейн и хостинг</strong> се купуват от вас, на ваше име, директно от доставчика — цената зависи от избрания доставчик и план. Ще ви помогнем с избора и ще ви изпратим кратък наръчник стъпка по стъпка.</span></div>
             <div class="grid2">
               <div class="f"><span class="lbl">Имате ли домейн и хостинг?</span>
                 <div class="chips">
