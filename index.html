@@ -358,6 +358,33 @@
   .sparkles i { will-change: opacity, transform; }
   .fsite, .opt .box { will-change: auto; }
 </style>
+<!-- Meta Pixel (ChilikovWeb) — зарежда се само след съгласие за бисквитки -->
+<script>
+(function () {
+  var PIXEL_ID = '1144802071244235';
+  function consented() {
+    try { if (localStorage.getItem('cw_cookies_v2') === 'accepted') return true; } catch (e) {}
+    return document.cookie.indexOf('cw_cookies_v2=accepted') !== -1;
+  }
+  window.cwLoadPixel = function () {
+    document.cookie = 'cw_cookies_v2=accepted; domain=.chilikovweb.com; path=/; max-age=31536000; SameSite=Lax';
+    if (window.fbq) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', PIXEL_ID);
+    fbq('track', 'PageView');
+    (window.cwPixelEvents || []).forEach(function (ev) { fbq('track', ev[0], ev[1] || {}); });
+  };
+  if (consented()) window.cwLoadPixel();
+})();
+</script>
+<script>
+  window.cwPixelEvents = [['ViewContent', { content_name: 'Формуляр за запитване' }]];
+  if (window.fbq) fbq('track', 'ViewContent', { content_name: 'Формуляр за запитване' });
+</script>
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
